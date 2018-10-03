@@ -122,7 +122,7 @@ def last_str_del(targetFilePath):
         in_f.close()
 
     with open(targetFilePath, "w", encoding='utf-8', newline='\n') as out_f:
-        out_f.write(in_txt[:-2])
+        out_f.write(in_txt[:-1])
         out_f.close()
 
 
