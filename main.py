@@ -44,8 +44,7 @@ def main():
 def read_dir(dirFullPath):
     """
     指定のディレクトリ内に存在するExcelファイル全てを読み込み、指定のcsvファイルに書き出す。
-    @dirFullPath 読み込み対象ディレクトリのフルパス
-    @csvFileName 書込み対象のcsvファイル名。プログラムが存在するディレクトリに作成・追記する。
+    @param dirFullPath 読み込み対象ディレクトリのフルパス
     """
 
     # 指定ディレクトリに格納されたファイルの内、Excelファイルの拡張子（xlsx）を有するファイルについて、全て読み込む
@@ -58,8 +57,9 @@ def read_dir(dirFullPath):
 def read_file(targetPath):
     """
     指定のExcelファイルを読み込み、指定のcsvファイルに書き出す。
-    @targetPath 読み込み対象Excelファイルのフルパス
+    @param targetPath 読み込み対象Excelファイルのフルパス
     """
+
     print("reading... : ", targetPath)
     df = read_excel(targetPath)
     csv_file = out_csv(df, targetPath)
@@ -122,7 +122,7 @@ def last_str_del(targetFilePath):
         in_f.close()
 
     with open(targetFilePath, "w", encoding='utf-8', newline='\n') as out_f:
-        out_f.write(in_txt[:-1])
+        out_f.write(in_txt.rstrip())
         out_f.close()
 
 
